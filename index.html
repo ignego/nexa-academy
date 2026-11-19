@@ -1,1 +1,481 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nexa AI Studio | Administração</title><link rel="stylesheet" href="styles.css"></head><body><div id="app"></div><script type="module" src="app.js"></script></body></html>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070914">
+<title>Nexa Academy | Aprenda sem limites</title>
+<style>
+:root{
+  --bg:#070914;
+  --surface:#11172a;
+  --line:#28314d;
+  --text:#f5f7ff;
+  --muted:#a5aec8;
+  --blue:#5377ff;
+  --purple:#a258ff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Arial,sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(7,9,20,.94);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #202841;
+}
+.navbar{
+  max-width:1450px;margin:auto;
+  min-height:76px;padding:12px 5%;
+  display:flex;align-items:center;gap:30px;
+}
+.logo{
+  font-size:25px;font-weight:900;
+  letter-spacing:-1px;white-space:nowrap;
+}
+.logo span{
+  background:linear-gradient(110deg,#6093ff,#bd6aff);
+  -webkit-background-clip:text;
+  background-clip:text;color:transparent;
+}
+nav{display:flex;gap:25px;flex:1}
+nav a{font-size:13px;color:#b7c0da}
+nav a:hover{color:white}
+.search{
+  background:#151b2d;border:1px solid #303a55;
+  color:white;border-radius:25px;
+  padding:11px 16px;width:210px;outline:none;
+}
+.search:focus{border-color:#7286ff}
+.avatar{
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,#4169f5,#9b46dd);
+  font-weight:800;
+}
+main{max-width:1450px;margin:auto;padding:25px 5% 70px}
+.hero{
+  position:relative;overflow:hidden;
+  min-height:390px;border-radius:22px;
+  background:
+    radial-gradient(ellipse at 80% 50%,#6736b17a,transparent 42%),
+    radial-gradient(ellipse at 50% 90%,#1746a7a6,transparent 50%),
+    linear-gradient(115deg,#0b1530,#111b48 55%,#29164d);
+  border:1px solid #38416d;
+  display:flex;align-items:center;padding:55px 6%;
+}
+.hero:after{
+  content:"";position:absolute;
+  width:340px;height:340px;border-radius:50%;
+  right:9%;top:9%;
+  border:1px solid #a5a8ff44;
+  box-shadow:0 0 0 45px #7c66ff0b,
+  0 0 0 95px #6382ff0b,
+  0 0 110px #7354ff55;
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:2;max-width:650px}
+.eyebrow{
+  color:#aabaff;letter-spacing:2px;
+  text-transform:uppercase;font-size:11px;
+  font-weight:800;
+}
+.hero h1{
+  font-size:clamp(38px,5.5vw,76px);
+  line-height:1.03;letter-spacing:-2.5px;
+  margin:17px 0;
+}
+.hero h1 span{
+  background:linear-gradient(95deg,#75a6ff,#c37aff);
+  background-clip:text;-webkit-background-clip:text;
+  color:transparent;
+}
+.hero p{
+  color:#c6cee5;max-width:520px;
+  font-size:15px;line-height:1.8;
+}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{
+  border:1px solid #64749d;
+  border-radius:11px;padding:13px 20px;
+  color:white;background:#1c2544;
+  font-weight:750;font-size:13px;
+}
+.btn.primary{
+  border:0;
+  background:linear-gradient(110deg,#466dff,#8d4ce5);
+  box-shadow:0 8px 30px #5762ed35;
+}
+.btn:hover{filter:brightness(1.15)}
+.hero-symbol{
+  position:absolute;right:17%;top:28%;
+  font-size:130px;font-weight:900;
+  color:#d3caff;
+  text-shadow:0 0 45px #8477ff;
+  transform:rotate(-10deg);
+  opacity:.8;
+}
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;margin:22px 0 35px;
+}
+.stat{
+  background:#10162a;border:1px solid #28314a;
+  border-radius:13px;padding:20px;
+}
+.stat strong{display:block;font-size:25px}
+.stat small{color:var(--muted)}
+.section{margin-top:36px}
+.section-head{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;margin-bottom:17px;
+}
+.section h2{font-size:21px;margin:0;letter-spacing:-.5px}
+.section-head a{font-size:13px;color:#94aaff}
+.course-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+}
+.course{
+  border:1px solid #293451;
+  background:#111729;border-radius:15px;
+  overflow:hidden;transition:.2s;
+  min-width:0;
+}
+.course:hover{
+  transform:translateY(-4px);
+  border-color:#7c77ff;
+  box-shadow:0 15px 35px #0006;
+}
+.cover{
+  height:150px;position:relative;
+  display:flex;align-items:center;
+  justify-content:center;overflow:hidden;
+  font-size:66px;
+}
+.cover:after{
+  content:"";position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 55%,#090d2099);
+}
+.cover span{z-index:1;filter:drop-shadow(0 12px 15px #0007)}
+.cover.excel{background:radial-gradient(circle at 65% 35%,#1ba67a,#073a34 75%)}
+.cover.code{background:radial-gradient(circle at 65% 35%,#5c7bff,#192453 75%)}
+.cover.office{background:radial-gradient(circle at 65% 35%,#ed994b,#5a2d31 75%)}
+.cover.ai{background:radial-gradient(circle at 65% 35%,#b85aff,#3d1b6e 75%)}
+.cover.data{background:linear-gradient(130deg,#14386a,#197da0)}
+.cover.marketing{background:linear-gradient(130deg,#622c84,#d0508a)}
+.cover.security{background:linear-gradient(130deg,#143e4c,#117d78)}
+.cover.design{background:linear-gradient(130deg,#6c2455,#e56b5f)}
+.cover.video{background:linear-gradient(130deg,#382b83,#c13c81)}
+.cover.finance{background:linear-gradient(130deg,#264d3c,#80a64a)}
+.cover.web{background:linear-gradient(130deg,#123e7a,#3a7ddb)}
+.cover.shop{background:linear-gradient(130deg,#6a3923,#d47a41)}
+.cover.english{background:linear-gradient(130deg,#284a87,#c94d62)}
+.cover.auto{background:linear-gradient(130deg,#252b74,#784edc)}
+.course-body{padding:16px}
+.tag{
+  color:#a7b8ff;font-size:10px;
+  text-transform:uppercase;letter-spacing:1px;
+  font-weight:800;
+}
+.course h3{font-size:16px;margin:9px 0}
+.course p{
+  color:#a8b1ca;font-size:12px;
+  line-height:1.6;min-height:38px;
+}
+.course-bottom{
+  display:flex;align-items:center;
+  justify-content:space-between;gap:8px;
+  margin-top:14px;
+}
+.course-bottom small{color:#a8b2d0;font-size:11px}
+.course-bottom button{
+  border:1px solid #4c5c8a;
+  border-radius:8px;background:#202b50;
+  color:white;padding:8px 12px;font-size:11px;
+}
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);gap:13px;
+}
+.category{
+  padding:22px 10px;border-radius:13px;
+  border:1px solid #303b58;
+  background:#131b30;color:white;
+  text-align:center;font-weight:750;
+}
+.category span{display:block;font-size:29px;margin-bottom:9px}
+.category:hover{border-color:#8a7dff}
+.trail{
+  padding:25px;border:1px solid #35395f;
+  border-radius:16px;
+  background:linear-gradient(115deg,#171d40,#241846);
+  display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+}
+.trail h3{margin:0 0 8px}
+.trail p{margin:0;color:#b9c2de;font-size:13px}
+footer{
+  border-top:1px solid #27304b;
+  padding:35px 5%;text-align:center;
+  color:#8d99b5;font-size:12px;
+}
+.modal-backdrop{
+  position:fixed;inset:0;background:#02040bdc;
+  z-index:50;display:none;align-items:center;
+  justify-content:center;padding:18px;
+}
+.modal-backdrop.open{display:flex}
+.modal{
+  background:#121a30;border:1px solid #48527b;
+  border-radius:19px;padding:27px;
+  width:min(100%,510px);
+  box-shadow:0 20px 90px #000a;
+}
+.modal h2{margin:10px 0}
+.modal p{color:#b9c3dc;line-height:1.7}
+.modal .close{
+  float:right;border:0;background:#2c3554;
+  color:white;border-radius:8px;padding:7px 11px;
+}
+.empty{
+  padding:30px;color:#a6b2ce;
+  border:1px dashed #384260;
+  border-radius:13px;text-align:center;
+}
+@media(max-width:1050px){
+  nav{gap:12px}
+  .course-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  .navbar{flex-wrap:wrap;gap:12px}
+  .logo{font-size:22px}
+  nav{order:3;width:100%;overflow:auto;gap:20px}
+  nav a{white-space:nowrap}
+  .search{margin-left:auto;width:145px}
+  main{padding:15px 4% 50px}
+  .hero{min-height:340px;padding:35px 7%}
+  .hero h1{letter-spacing:-1.5px}
+  .hero-symbol{right:5%;opacity:.16}
+  .stats{gap:8px}
+  .stat{padding:13px}
+  .stat strong{font-size:19px}
+  .course-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .cover{height:125px}
+  .course-body{padding:12px}
+  .category-grid{grid-template-columns:repeat(2,1fr)}
+  .trail{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:360px){
+  .search{width:120px}
+  .course-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a class="logo" href="#inicio">NEXA <span>ACADEMY</span></a>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#trilhas">Trilhas</a>
+      <a href="#meus-cursos">Meus Cursos</a>
+    </nav>
+    <input class="search" id="search" placeholder="Buscar cursos..." aria-label="Buscar cursos">
+    <a class="avatar" href="admin.html" title="Nexa AI Studio">N</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">Sua jornada começa aqui</div>
+      <h1>O futuro começa <span>com você.</span></h1>
+      <p>Aprenda novas habilidades, desenvolva seu potencial e transforme seu futuro com a Nexa Academy.</p>
+      <div class="actions">
+        <a class="btn primary" href="#cursos">Explorar cursos</a>
+        <a class="btn" href="#trilhas">Conhecer trilhas</a>
+      </div>
+    </div>
+    <div class="hero-symbol" aria-hidden="true">✦</div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><strong>14</strong><small>Cursos planejados</small></div>
+    <div class="stat"><strong>126</strong><small>Módulos estruturados</small></div>
+    <div class="stat"><strong>100%</strong><small>Foco na prática</small></div>
+  </div>
+
+  <section class="section" id="cursos">
+    <div class="section-head">
+      <h2>🔥 Cursos em destaque</h2>
+      <a href="#todos">Ver todos</a>
+    </div>
+    <div class="course-grid" id="featured"></div>
+  </section>
+
+  <section class="section" id="categorias">
+    <div class="section-head"><h2>Explore por categoria</h2></div>
+    <div class="category-grid">
+      <button class="category" onclick="filterCategory('Tecnologia')"><span>💻</span>Tecnologia</button>
+      <button class="category" onclick="filterCategory('Negócios')"><span>📈</span>Negócios</button>
+      <button class="category" onclick="filterCategory('Criatividade')"><span>🎨</span>Criatividade</button>
+      <button class="category" onclick="filterCategory('Dados')"><span>📊</span>Dados</button>
+      <button class="category" onclick="filterCategory('Todos')"><span>✨</span>Todos</button>
+    </div>
+  </section>
+
+  <section class="section" id="todos">
+    <div class="section-head">
+      <h2>Todos os cursos</h2>
+      <span id="counter" style="color:#9eabc8;font-size:12px"></span>
+    </div>
+    <div class="course-grid" id="all-courses"></div>
+  </section>
+
+  <section class="section" id="trilhas">
+    <div class="section-head"><h2>🚀 Trilhas de aprendizagem</h2></div>
+    <div class="trail">
+      <div>
+        <h3>Do básico ao profissional</h3>
+        <p>Comece pelos fundamentos e avance até projetos reais.</p>
+      </div>
+      <a class="btn primary" href="#cursos">Começar jornada</a>
+    </div>
+  </section>
+
+  <section class="section" id="meus-cursos">
+    <div class="section-head"><h2>📚 Meus cursos</h2></div>
+    <div class="empty">
+      O acompanhamento de matrículas e progresso dos alunos será disponibilizado em uma próxima etapa.
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">NEXA <span>ACADEMY</span></div>
+  <p>Aprenda. Evolua. Conquiste.</p>
+  <p>© 2026 Nexa Academy. Todos os direitos reservados.</p>
+  <a href="admin.html">Acesso administrativo</a>
+</footer>
+
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="close" onclick="closeModal()">✕</button>
+    <div class="tag" id="modal-category"></div>
+    <h2 id="modal-title"></h2>
+    <p id="modal-description"></p>
+    <p>📚 9 módulos planejados</p>
+    <p>🔒 Conteúdo em preparação</p>
+    <button class="btn primary" onclick="closeModal()">Entendi</button>
+  </div>
+</div>
+
+<script>
+const courses = [
+  {title:"Excel Completo",category:"Produtividade",icon:"📊",theme:"excel",description:"Domine planilhas, fórmulas, gráficos e análise de dados."},
+  {title:"Programação e Desenvolvimento",category:"Tecnologia",icon:"💻",theme:"code",description:"Aprenda lógica, HTML, CSS, JavaScript e desenvolvimento."},
+  {title:"Informática Profissional",category:"Tecnologia",icon:"🖥️",theme:"office",description:"Aprenda as ferramentas essenciais do mundo digital."},
+  {title:"Inteligência Artificial",category:"Tecnologia",icon:"🤖",theme:"ai",description:"Descubra como utilizar IA na vida e no trabalho."},
+  {title:"Power BI e Análise de Dados",category:"Dados",icon:"📈",theme:"data",description:"Crie relatórios e dashboards profissionais."},
+  {title:"Marketing Digital",category:"Negócios",icon:"📣",theme:"marketing",description:"Aprenda estratégias digitais para conquistar clientes."},
+  {title:"Cibersegurança",category:"Tecnologia",icon:"🛡️",theme:"security",description:"Conheça os fundamentos da proteção digital."},
+  {title:"Design Gráfico",category:"Criatividade",icon:"🎨",theme:"design",description:"Crie identidades visuais e projetos criativos."},
+  {title:"Edição de Vídeos",category:"Criatividade",icon:"🎬",theme:"video",description:"Aprenda edição, montagem e produção audiovisual."},
+  {title:"Gestão Financeira",category:"Negócios",icon:"💰",theme:"finance",description:"Organize finanças e desenvolva visão financeira."},
+  {title:"Criação de Sites Profissionais",category:"Tecnologia",icon:"🌐",theme:"web",description:"Construa sites modernos e responsivos."},
+  {title:"E-commerce e Vendas Online",category:"Negócios",icon:"🛒",theme:"shop",description:"Aprenda a estruturar e administrar lojas virtuais."},
+  {title:"Inglês Profissional",category:"Idiomas",icon:"🌍",theme:"english",description:"Desenvolva comunicação em inglês para o trabalho."},
+  {title:"Automação com IA",category:"Tecnologia",icon:"⚡",theme:"auto",description:"Crie fluxos de trabalho inteligentes e automatizados."}
+];
+
+function courseCard(course){
+  const index=courses.indexOf(course);
+  return `
+    <article class="course">
+      <div class="cover ${course.theme}">
+        <span>${course.icon}</span>
+      </div>
+      <div class="course-body">
+        <div class="tag">${course.category}</div>
+        <h3>${course.title}</h3>
+        <p>${course.description}</p>
+        <div class="course-bottom">
+          <small>9 módulos · Em breve</small>
+          <button onclick="openCourse(${index})">Detalhes</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderCourses(list=courses){
+  document.getElementById("featured").innerHTML=
+    courses.slice(0,4).map(courseCard).join("");
+
+  document.getElementById("all-courses").innerHTML=
+    list.length
+      ? list.map(courseCard).join("")
+      : '<div class="empty">Nenhum curso encontrado.</div>';
+
+  document.getElementById("counter").textContent=
+    list.length+" cursos";
+}
+
+function openCourse(index){
+  const course=courses[index];
+  if(!course)return;
+  document.getElementById("modal-category").textContent=course.category;
+  document.getElementById("modal-title").textContent=course.title;
+  document.getElementById("modal-description").textContent=course.description;
+  document.getElementById("modal").classList.add("open");
+}
+
+function closeModal(){
+  document.getElementById("modal").classList.remove("open");
+}
+
+function filterCategory(category){
+  const list=category==="Todos"
+    ?courses
+    :courses.filter(c=>c.category===category);
+  document.getElementById("search").value="";
+  renderCourses(list);
+  document.getElementById("todos").scrollIntoView({behavior:"smooth"});
+}
+
+document.getElementById("search").addEventListener("input",event=>{
+  const term=event.target.value.toLocaleLowerCase("pt-BR");
+  renderCourses(courses.filter(c=>
+    (c.title+" "+c.category+" "+c.description)
+      .toLocaleLowerCase("pt-BR").includes(term)
+  ));
+});
+
+document.getElementById("modal").addEventListener("click",event=>{
+  if(event.target.id==="modal")closeModal();
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape")closeModal();
+});
+
+renderCourses();
+</script>
+</body>
+</html>
+
