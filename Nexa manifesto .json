@@ -1,0 +1,133 @@
+{
+  "bucket": "studio-videos",
+  "private": true,
+  "course_id": "fdb3bf53-1d40-484f-85c9-2b195dd8dafa",
+  "videos": [
+    {
+      "aula": 1,
+      "modulo": 1,
+      "arquivo_no_zip": "Modulo_01_primeiros_passos_no_excel/Aula_01_conhecendo_o_excel.mp4",
+      "destino_storage": "excel-completo/aula-01.mp4",
+      "bytes": 2477827
+    },
+    {
+      "aula": 2,
+      "modulo": 1,
+      "arquivo_no_zip": "Modulo_01_primeiros_passos_no_excel/Aula_02_criando_e_salvando_uma_planilha.mp4",
+      "destino_storage": "excel-completo/aula-02.mp4",
+      "bytes": 1161024
+    },
+    {
+      "aula": 3,
+      "modulo": 2,
+      "arquivo_no_zip": "Modulo_02_formatação_e_cálculos_essenciais/Aula_03_formatação_de_planilhas.mp4",
+      "destino_storage": "excel-completo/aula-03.mp4",
+      "bytes": 485042
+    },
+    {
+      "aula": 4,
+      "modulo": 2,
+      "arquivo_no_zip": "Modulo_02_formatação_e_cálculos_essenciais/Aula_04_fórmulas_essenciais.mp4",
+      "destino_storage": "excel-completo/aula-04.mp4",
+      "bytes": 743335
+    },
+    {
+      "aula": 5,
+      "modulo": 3,
+      "arquivo_no_zip": "Modulo_03_funções_e_visualização_de_dados/Aula_05_funções_intermediárias.mp4",
+      "destino_storage": "excel-completo/aula-05.mp4",
+      "bytes": 2431579
+    },
+    {
+      "aula": 6,
+      "modulo": 3,
+      "arquivo_no_zip": "Modulo_03_funções_e_visualização_de_dados/Aula_06_tabelas_e_gráficos.mp4",
+      "destino_storage": "excel-completo/aula-06.mp4",
+      "bytes": 1918361
+    },
+    {
+      "aula": 7,
+      "modulo": 4,
+      "arquivo_no_zip": "Modulo_04_análise_e_automação/Aula_07_análise_de_dados.mp4",
+      "destino_storage": "excel-completo/aula-07.mp4",
+      "bytes": 1309361
+    },
+    {
+      "aula": 8,
+      "modulo": 4,
+      "arquivo_no_zip": "Modulo_04_análise_e_automação/Aula_08_automação_e_macros.mp4",
+      "destino_storage": "excel-completo/aula-08.mp4",
+      "bytes": 937234
+    },
+    {
+      "aula": 9,
+      "modulo": 5,
+      "arquivo_no_zip": "Modulo_05_projetos_de_gestão_e_dashboards/Aula_09_projeto_prático_de_controle_financeiro.mp4",
+      "destino_storage": "excel-completo/aula-09.mp4",
+      "bytes": 1573228
+    },
+    {
+      "aula": 10,
+      "modulo": 5,
+      "arquivo_no_zip": "Modulo_05_projetos_de_gestão_e_dashboards/Aula_10_criando_um_dashboard_de_vendas.mp4",
+      "destino_storage": "excel-completo/aula-10.mp4",
+      "bytes": 2260003
+    },
+    {
+      "aula": 11,
+      "modulo": 6,
+      "arquivo_no_zip": "Modulo_06_busca_e_qualidade_dos_dados/Aula_11_funções_de_busca_e_referência.mp4",
+      "destino_storage": "excel-completo/aula-11.mp4",
+      "bytes": 1569478
+    },
+    {
+      "aula": 12,
+      "modulo": 6,
+      "arquivo_no_zip": "Modulo_06_busca_e_qualidade_dos_dados/Aula_12_validação_de_dados_e_formatação_condicional.mp4",
+      "destino_storage": "excel-completo/aula-12.mp4",
+      "bytes": 873257
+    },
+    {
+      "aula": 13,
+      "modulo": 7,
+      "arquivo_no_zip": "Modulo_07_tratamento_e_análise_avançada/Aula_13_power_query_e_tratamento_de_dados.mp4",
+      "destino_storage": "excel-completo/aula-13.mp4",
+      "bytes": 923242
+    },
+    {
+      "aula": 14,
+      "modulo": 7,
+      "arquivo_no_zip": "Modulo_07_tratamento_e_análise_avançada/Aula_14_tabelas_dinâmicas_avançadas.mp4",
+      "destino_storage": "excel-completo/aula-14.mp4",
+      "bytes": 803143
+    },
+    {
+      "aula": 15,
+      "modulo": 8,
+      "arquivo_no_zip": "Modulo_08_planejamento_financeiro_e_indicadores/Aula_15_funções_financeiras_e_análise_de_cenários.mp4",
+      "destino_storage": "excel-completo/aula-15.mp4",
+      "bytes": 1265460
+    },
+    {
+      "aula": 16,
+      "modulo": 8,
+      "arquivo_no_zip": "Modulo_08_planejamento_financeiro_e_indicadores/Aula_16_dashboards_interativos_e_indicadores_de_desempenho.mp4",
+      "destino_storage": "excel-completo/aula-16.mp4",
+      "bytes": 1238224
+    },
+    {
+      "aula": 17,
+      "modulo": 9,
+      "arquivo_no_zip": "Modulo_09_projetos_finais_e_avaliação/Aula_17_projeto_integrado_de_controle_de_estoque.mp4",
+      "destino_storage": "excel-completo/aula-17.mp4",
+      "bytes": 1862417
+    },
+    {
+      "aula": 18,
+      "modulo": 9,
+      "arquivo_no_zip": "Modulo_09_projetos_finais_e_avaliação/Aula_18_projeto_final_e_avaliação.mp4",
+      "destino_storage": "excel-completo/aula-18.mp4",
+      "bytes": 1270334
+    }
+  ]
+}
