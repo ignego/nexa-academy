@@ -1,6 +1,5 @@
-
-window.NEXA_CONFIG = {
-  url: 'https://tcewwodposmjdjcgpakq.supabase.co',
-  publishableKey: 'sb_publishable_n5O4GCqni60npjGGzoxL7w_L0xniibf'
-};
-
+// Apenas URL e chave PUBLISHABLE. Nunca use service_role, secret ou senha de banco.
+window.NEXA_PUBLIC_CONFIG = Object.freeze({
+  supabaseUrl: '',
+  supabasePublishableKey: ''
+});
